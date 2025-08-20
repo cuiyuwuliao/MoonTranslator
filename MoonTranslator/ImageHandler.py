@@ -110,7 +110,7 @@ def importImagesToPDF(jsonPath):
                 image_rects = page.get_image_rects(xref_to_replace)
                 if image_rects:  # Check if the image was found on the page
                     original_rect = image_rects[0]  # Typically the first rectangle if image appears once
-                    print(f"Original image position: {original_rect}")
+                    # print(f"Original image position: {original_rect}")
                     # First remove the existing image
                     page.delete_image(xref_to_replace)
                     # Insert the new image at the same position
@@ -118,9 +118,13 @@ def importImagesToPDF(jsonPath):
                 else:
                     print("Image not found on page")
     # Save the modified PDF to the specified output path
-    outputFileName = originalFilePath if "_translation" in originalFilePath else add_suffix_to_filename(originalFilePath, "_translation")
-    pdf_document.save(outputFileName)
+    outputFileName = add_suffix_to_filename(originalFilePath, "_Pimage")
+    try:
+        pdf_document.save(outputFileName, incremental=False)
+    except ValueError:
+        pdf_document.save(outputFileName, incremental=True)
     pdf_document.close()
+    return outputFileName
 
 # prtivate method for pptx
 def extract_images_from_shapes(shapes, shapes_to_modify, page_index):
@@ -195,8 +199,9 @@ def importImagesToPPTX(sourceJson):
         shapePosition = entry['shapePosition']
         slide = presentation.slides[pageIndex]
         slide.shapes.add_picture(imagePath, shapePosition["left"], shapePosition["top"], shapePosition["width"], shapePosition["height"])
-    outputFileName = pptxFile if "_translation" in pptxFile else add_suffix_to_filename(pptxFile, "_translation")
+    outputFileName = add_suffix_to_filename(pptxFile, "_Pimage")
     presentation.save(outputFileName)
+    return outputFileName
 
 
 def extractImagesFromXLSX(inputPath):
@@ -276,8 +281,9 @@ def importImagesToXLSX(sourceJson):
         img.anchor = f"{column_letter}{row}"  # Set the anchor to the cell in A1 notation
         
         ws.add_image(img)
-    outputFileName = xlsxFile if "_translation" in xlsxFile else add_suffix_to_filename(xlsxFile, "_translation")
+    outputFileName = add_suffix_to_filename(xlsxFile, "_Pimage")
     workbook.save(outputFileName)
+    return outputFileName
 
 
 

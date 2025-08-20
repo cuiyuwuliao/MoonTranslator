@@ -1,13 +1,13 @@
 {
     "BoxItems":[
         {
-            "ContextMenu":"说明",
+            "ContextMenu":"Home",
             "DisplayText":"-本程序是一个拖拽式应用坞，可以将常用的应用拖入保存\n-也可以定时或后台运行脚本\n-点击readme，或将鼠标悬停在按钮上，查看使用方法",
             "ImagePath": "${WwiseProjectRoot}\\Tools\\assignBus\\busAssigner.png",
             "Link":"header"   
         },
         {
-            "ContextMenu":"页面1",
+            "ContextMenu":"Tools",
             "DisplayText":"这里的文字是可以任意配置的",
             "ImagePath": "${WwiseProjectRoot}\\Tools\\assignBus\\busAssigner.png",
             "Link":"header",

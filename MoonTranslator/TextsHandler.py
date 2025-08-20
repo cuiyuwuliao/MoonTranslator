@@ -170,9 +170,13 @@ def importTextsToPdf(meta_json: str) -> None:
                 fontsize=size,
                 color=black,
             )
-    outputFileName = input_path if "_translation" in input_path else add_suffix_to_filename(input_path, "_translation")
-    doc.save(outputFileName)
+    outputFileName = add_suffix_to_filename(input_path, "_Ptext")
+    try:
+        doc.save(outputFileName, incremental=False)
+    except ValueError:
+        doc.save(outputFileName, incremental=True)
     doc.close()
+    return outputFileName
 
 # -----------------------
 # XLSX (openpyxl)
@@ -232,9 +236,10 @@ def importTextsToXlsx(meta_json: str) -> None:
             continue
         ws: Worksheet = wb[sheet]
         ws[cell_ref].value = texts_map[tid]
-    outputFileName = input_path if "_translation" in input_path else add_suffix_to_filename(input_path, "_translation")
+    outputFileName = add_suffix_to_filename(input_path, "_Pimage")
     wb.save(outputFileName)
     wb.close()
+    return outputFileName
 
 # -----------------------
 # PPTX (python-pptx)
@@ -354,8 +359,9 @@ def importTextsToPptx(meta_json: str) -> None:
                 continue
             run = paragraph.runs[r_idx]
             run.text = texts_map[tid]
-    outputFileName = input_path if "_translation" in input_path else add_suffix_to_filename(input_path, "_translation")
+    outputFileName = add_suffix_to_filename(input_path, "_Pimage")
     prs.save(outputFileName)
+    return outputFileName
 
 
 # testImagePath = os.path.join(currentDir, "source", "test.png")

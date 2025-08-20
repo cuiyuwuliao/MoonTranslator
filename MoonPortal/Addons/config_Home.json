@@ -1,0 +1,13 @@
+﻿{
+  "BoxItems": [
+    {
+      "ImagePath": null,
+      "DisplayText": "config.json",
+      "ContextMenu": "Home",
+      "Link": "C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\config.json",
+      "AllowedExtensions": null,
+      "FilePath": null,
+      "IsLarge": null
+    }
+  ]
+}

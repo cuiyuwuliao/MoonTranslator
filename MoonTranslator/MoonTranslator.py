@@ -12,20 +12,19 @@ if getattr(sys, 'frozen', False):
     currentDir = os.path.dirname(sys.executable)
 else:
     currentDir = os.path.dirname(os.path.abspath(__file__))
-
-# testImagePath = os.path.join(currentDir, "source", "test.png")
-# testImagePath_output = os.path.join(currentDir, "source", "test111.png")
-testPdfPath = os.path.join(currentDir, "source", "xinqianli.pdf")
-# testPdfPath_output = os.path.join(currentDir, "source", "图纸111.pdf")
-testPptPath = os.path.join(currentDir, "source", "PDF图文.pptx")
-# testPptPath_output = os.path.join(currentDir, "source", "PDF图文111.pptx")
-testXslxPath = os.path.join(currentDir, "source", "sheet.xlsx")
+noTranslate = True
 
 defaultConfigData = {
-    "OCR_language": ["en","ru"],
+    "LLM_key": "sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5",
+    "LLM_model": "gpt-4o-mini",
+    "LLM_url": "https://api.chatanywhere.tech/v1", 
+    "LLM_maxTries": 10, 
+    "LLM_chunkSize": 1500,
     "OCR_minConfidence": 0.6,
     "OCR_fontSize": 0.7,
     "OCR_textPadding": True,
+    "OCR_fontFile": "Chinese.ttf",
+    "OCR_language": ["en","ru"],
     "translate_to": "Chinese"
 }
 
@@ -33,29 +32,32 @@ defaultConfigData = {
 def extractTexts(filePath):
     if filePath.endswith(".pptx"):
         jsonMeta, jsonContent = TextsHandler.extractTextsFromPptx(filePath)
-    elif filePath.endswith(".xlsx"):
+    elif filePath.lower().endswith(".xlsx"):
         jsonMeta, jsonContent = TextsHandler.extractTextsFromXlsx(filePath)
-    elif filePath.endswith(".pdf"):
+    elif filePath.lower().endswith(".pdf"):
         jsonMeta, jsonContent = TextsHandler.extractTextsFromPdf(filePath)
+    elif filePath.lower().endswith(('.jpeg', '.jpg', '.png')):
+        jsonMeta,jsonContent = runOCR(filePath)
     return jsonMeta, jsonContent
 
 def importTexts(jsonMeta):
     meta = TextsHandler._read_json(jsonMeta)
     filePath = meta["originalFilePath"]
     print(f"\nimporting texts from: {jsonMeta} to {filePath}")
-    if filePath.endswith(".pptx"):
-        TextsHandler.importTextsToPptx(jsonMeta)
-    elif filePath.endswith(".xlsx"):
-        TextsHandler.importTextsToXlsx(jsonMeta)
-    elif filePath.endswith(".pdf"):
-        TextsHandler.importTextsToPdf(jsonMeta)
+    if filePath.lower().endswith(".pptx"):
+        outputFileName = TextsHandler.importTextsToPptx(jsonMeta)
+    elif filePath.lower().endswith(".xlsx"):
+        outputFileName = TextsHandler.importTextsToXlsx(jsonMeta)
+    elif filePath.lower().endswith(".pdf"):
+        outputFileName = TextsHandler.importTextsToPdf(jsonMeta)
+    return outputFileName
 
 def extractImages(filePath):
-    if filePath.endswith(".pptx"):
+    if filePath.lower().endswith(".pptx"):
         jsonMeta = ImageHandler.extractImagesFromPPTX(filePath)
-    elif filePath.endswith(".xlsx"):
+    elif filePath.lower().endswith(".xlsx"):
         jsonMeta = ImageHandler.extractImagesFromXLSX(filePath)
-    elif filePath.endswith(".pdf"):
+    elif filePath.lower().endswith(".pdf"):
         jsonMeta = ImageHandler.extractImagesFromPDF(filePath)
     return jsonMeta
 
@@ -64,11 +66,12 @@ def importImages(jsonMeta):
     filePath = meta["originalFilePath"]
     print(f"\nimporting images from: {jsonMeta} to {filePath}")
     if filePath.endswith(".pptx"):
-        ImageHandler.importImagesToPPTX(jsonMeta)
+        outputFileName = ImageHandler.importImagesToPPTX(jsonMeta)
     elif filePath.endswith(".xlsx"):
-        ImageHandler.importImagesToXLSX(jsonMeta)
+        outputFileName = ImageHandler.importImagesToXLSX(jsonMeta)
     elif filePath.endswith(".pdf"):
-        ImageHandler.importImagesToPDF(jsonMeta)
+        outputFileName = ImageHandler.importImagesToPDF(jsonMeta)
+    return outputFileName
 
 
 
@@ -81,20 +84,40 @@ def writejsonToImage(jsonResult):
     ImageTextWriter.writeJsonToImages(jsonResult)
 
 
-
 def translateImagesFromFile(filePath):
     jsonPath = extractImages(filePath)
     imageDir = os.path.split(jsonPath)[0]
     jsonMeta, jsonContent = runOCR(imageDir)
-    # ListCaller.translateJsonFile(jsonContent)
+    if not noTranslate:
+        print("###Begin Images Translation###")
+        ListCaller.translateJsonFile(jsonContent)
     writejsonToImage(jsonMeta)
-    importImages(jsonPath)
+    outputFileName = importImages(jsonPath)
+    return outputFileName
 
 def translateTextsFromFile(filePath):
     jsonMeta, jsonContent = extractTexts(filePath)
-    ListCaller.translateJsonFile(jsonContent)
-    importTexts(jsonMeta)
+    if not noTranslate:
+        print("###Begin Texts Translation###")
+        ListCaller.translateJsonFile(jsonContent)
+    outputFileName = importTexts(jsonMeta)
+    return outputFileName
 
+def translateImage(filePath):
+    jsonMeta,jsonContent = runOCR(filePath)
+    if not noTranslate:
+        print("###Begin Images Translation###")
+        ListCaller.translateJsonFile(jsonContent)
+    writejsonToImage(jsonMeta)
+    return jsonMeta
+
+def translateFile(filePath):
+    if os.path.isdir(filePath) or filePath.lower().endswith(('.jpeg', '.jpg', '.png')):
+        outputFileName = translateImage(filePath)
+    else:
+        outputFileName = translateTextsFromFile(filePath)
+        outputFileName = translateImagesFromFile(outputFileName)
+    return outputFileName
 
 def init():
     global defaultConfigData
@@ -106,7 +129,13 @@ def init():
             ImageTextWriter.minConfidence = configData["OCR_minConfidence"]
             ImageTextWriter.FontSizeRatio = configData["OCR_fontSize"]
             ImageTextWriter.textPadding = configData["OCR_textPadding"]
+            ImageTextWriter.fontFile = configData["OCR_fontFile"]
             ListCaller.targetLanguage = configData["translate_to"]
+            ListCaller.setLLM(url=configData["LLM_url"], key=configData["LLM_key"])
+            ListCaller.maxTries = configData["LLM_maxTries"]
+            ListCaller.model = configData["LLM_model"]
+            ListCaller.chunkSize = configData["LLM_chunkSize"]
+            
     except Exception as e:
         if os.path.exists(configFile):
             os.remove(configFile)
@@ -124,8 +153,11 @@ def init():
 # userInput = input("\ngive me a file: ")
 # translateImagesFromFile(userInput)
 
-init()
-userInput = input("\ngive me a file: ")
-translateTextsFromFile(userInput)
+# init()
+# userInput = input("\ngive me a file: ")
+# translateTextsFromFile(userInput)
 # ImageTextWriter.writeJsonToImages("C:\\Users\\Administrator\\Desktop\\tools\\others\\MoonTranslator\\source\\chinese_extraction\\chinese_extraction_OCR.json")
 
+init()
+userInput = input("\ngive me a file: ")
+translateFile(userInput)

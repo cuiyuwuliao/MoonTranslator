@@ -1,10 +1,13 @@
 {
-  "OCR_language": [
-    "en",
-    "ch_sim"
-  ],
+  "LLM_key": "sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5",
+  "LLM_model": "gpt-4o-mini",
+  "LLM_url": "https://api.chatanywhere.tech/v1",
+  "LLM_maxTries": 10,
+  "LLM_chunkSize": 1500,
   "OCR_minConfidence": 0.6,
   "OCR_fontSize": 0.7,
   "OCR_textPadding": true,
-  "translate_to": "English"
+  "OCR_fontFile": "Chinese.ttf",
+  "OCR_language": ["en","ru"],
+  "translate_to": "Chinese"
 }

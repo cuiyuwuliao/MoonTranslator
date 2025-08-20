@@ -48,6 +48,7 @@ class ImageTextWriter:
     minConfidence = 0.7 #最低的识别度, 不超过0.9的文字忽略
     FontSizeRatio = 0.7 #字体大小, 1代表和原本一样大
     textPadding = True
+    fontFile = "Chinese.ttf"
 
     def __init__(self, inputPath = None, setOcr=True):
         self.inputPath = inputPath
@@ -91,30 +92,30 @@ class ImageTextWriter:
         TopLeft = BoundingBox[0]
         BottomRight = BoundingBox[2]
         # Calculate width and height of the bounding box
-        BoxWidth = BottomRight[0] - TopLeft[0]
-        BoxHeight = BottomRight[1] - TopLeft[1]
-        if BoxHeight < 20:
-            BoxHeight = 20
-        if BoxWidth < 20:
-            BoxHeight = 40
+        BoxWidth = abs(BottomRight[0] - TopLeft[0])
+        BoxHeight = abs(BottomRight[1] - TopLeft[1])
+        # if BoxHeight < 20:
+        #     BoxHeight = 20
+        # if BoxWidth < 20:
+        #     BoxHeight = 40
         # Determine font size based on the height of the bounding box
         FontSize = int(BoxHeight * FontSizeRatio)
-        Font = ImageFont.truetype(os.path.join(currentDir,"Chinese.ttf"), FontSize)
+        Font = ImageFont.truetype(os.path.join(currentDir,ImageTextWriter.fontFile), FontSize)
         # Calculate text size
         if ImageObj.mode != 'RGB':
             ImageObj = ImageObj.convert('RGB')
         Draw = ImageDraw.Draw(ImageObj)
         TextBoundingBox = Draw.textbbox((TopLeft[0], TopLeft[1]), Text, font=Font)
-        TextWidth = TextBoundingBox[2] - TextBoundingBox[0]
-        TextHeight = TextBoundingBox[3] - TextBoundingBox[1]
+        TextWidth = abs(TextBoundingBox[2] - TextBoundingBox[0])
+        TextHeight = abs(TextBoundingBox[3] - TextBoundingBox[1])
         # Calculate position (centered in the bounding box)
         X = TopLeft[0]
         Y = TopLeft[1] + BoxHeight
         # Define text color
         TextColor = (255, 0, 255) 
         # Add text to image
-        FontSize = FontSize * (BoxWidth / TextWidth)
-        Font = ImageFont.truetype(os.path.join(currentDir,"Chinese.ttf"), FontSize)
+        newFontSize = FontSize * (BoxWidth / TextWidth)
+        Font = ImageFont.truetype(os.path.join(currentDir,ImageTextWriter.fontFile), newFontSize)
         if ImageTextWriter.textPadding:
             TextBoundingBox = Draw.textbbox((TopLeft[0], TopLeft[1]), Text, font=Font)
             TextWidth = TextBoundingBox[2] - TextBoundingBox[0]
