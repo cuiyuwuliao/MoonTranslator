@@ -4,6 +4,7 @@ import json
 
 paidKey = "sk-R74koTKruRMkGXjogVbnPTCUzMkks2FeY76x3c0pJpBUuA0o"
 freeKey = "sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5"
+
 client = openai.OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
     api_key=paidKey,
