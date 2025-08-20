@@ -1,0 +1,13 @@
+﻿{
+  "BoxItems": [
+    {
+      "ImagePath": null,
+      "DisplayText": "readme.txt",
+      "ContextMenu": "\u8BF4\u660E",
+      "Link": "${MoonPortal_v0.1}\\readme.txt",
+      "AllowedExtensions": null,
+      "FilePath": null,
+      "IsLarge": null
+    }
+  ]
+}

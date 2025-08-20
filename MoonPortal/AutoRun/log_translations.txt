@@ -1,0 +1,32 @@
+!_原文:Arabic ranks as the fourth most widely spoken language in the world
+译文:中文意思为: 阿拉伯语在世界上位列第四大使用范围广泛的语言。!_
+!_原文:Arabic is one of the world's major languages with over 300 million people in various Arab countries who use it as a mother tongue.
+译文:中文意思为: 阿拉伯语是世界上主要的语言之一，超过3亿人来自不同的阿拉伯国家使用它作为母语。!_
+!_原文:Arabic is a Central Semitic language of the Afroasiatic language family spoken primarily in the Arab world. The International Organization for
+译文:中文意思为: 阿拉伯语是非洲亚语系中的中部闪族语言，主要在阿拉伯世界使用。国际组织为!_
+!_原文:Arabic language, Semitic language spoken in a large area including North Africa, most of the Arabian Peninsula, and other parts of the Middle East.
+译文:中文意思为: 阿拉伯语，一种闪族语言，广泛使用于包括北非、阿拉伯半岛大部分地区以及中东其他地区在内的地域。!_
+!_原文:Please check permissions
+译文:中文意思为: 请检查权限!_
+!_原文:convert_numpy_types
+译文:中文意思为：转换numpy类型!_
+!_原文:Complete
+译文:中文意思为: 完整!_
+!_原文:¡Hola! ¿Cómo estás? Me encanta aprender idiomas
+译文:中文意思为: 你好！你好吗？我喜欢学习语言。!_
+!_原文:Guten Tag! Ich trinke gerne Kaffee am Morgen.
+译文:中文意思为: 你好！我喜欢早上喝咖啡。!_
+!_原文:안녕하세요! 점심 식사 맛있게 하세요.
+译文:中文意思为：你好！祝你午餐吃得美味。!_
+!_原文:Merhaba! Benim en sevdiğim renk mavidir
+译文:中文意思为: 你好！我最喜欢的颜色是蓝色。!_
+!_原文:السلام عليكم. أهلاً وسهلاً ب
+译文:中文意思为: 你好。欢迎。!_
+!_原文:السلام عليكم. أهلاً وسهلاً بكم. 
+译文:中文意思为: 你好。欢迎您。!_
+!_原文:Dobryy den'! Segodnya khoroshaya pogoda.
+译文:中文意思为: 早上好！今天天气很好。!_
+!_原文:(Wǒ xǐhuān kànshū hé tīng yīnyuè.
+译文:中文意思为: 我喜欢看书和听音乐。!_
+!_原文:こんにちは！私の名前はアンナです
+译文:中文意思为: 你好！我的名字是安娜。!_
