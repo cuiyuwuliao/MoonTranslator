@@ -1,0 +1,10 @@
+{
+  "OCR_language": [
+    "en",
+    "ch_sim"
+  ],
+  "OCR_minConfidence": 0.6,
+  "OCR_fontSize": 0.7,
+  "OCR_textPadding": true,
+  "translate_to": "English"
+}
