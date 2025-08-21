@@ -1,1 +1,5 @@
 source/
+*_Private
+__pycashe__/
+build/
+dist/
