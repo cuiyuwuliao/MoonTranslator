@@ -1,20 +1,2 @@
 <copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 完整!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好！你好吗？我喜欢学习语言。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好！我喜欢早上喝咖啡。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为：你好！祝你午餐吃得美味。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好！我最喜欢的颜色是蓝色。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好。欢迎。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好。欢迎您。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 早上好！今天天气很好。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 我喜欢看书和听音乐。!_
-<copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 你好！我的名字是安娜。!_
+<copyTranslator>!_中文意思为: 使用 Triton 持久缓存感知分组 GEMM 内核加速 MoE 的运行!_

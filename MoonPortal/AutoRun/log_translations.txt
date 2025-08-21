@@ -30,3 +30,5 @@
 译文:中文意思为: 我喜欢看书和听音乐。!_
 !_原文:こんにちは！私の名前はアンナです
 译文:中文意思为: 你好！我的名字是安娜。!_
+!_原文:Accelerating MoE’s with a Triton Persistent Cache-Aware Grouped GEMM Kernel
+译文:中文意思为: 使用 Triton 持久缓存感知分组 GEMM 内核加速 MoE 的运行!_

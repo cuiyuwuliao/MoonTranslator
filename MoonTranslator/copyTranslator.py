@@ -43,7 +43,7 @@ def send_prompt(prompt, model="gpt-3.5-turbo", max_tokens=3000):
             model="gpt-3.5-turbo",
             max_tokens=max_tokens,
             messages=[
-                {"role": "user","content":"You are a translator who provides precise and accurate translation, your response must starts with \" 中文意思为:\""},
+                {"role": "system","content":"You are a translator who provides precise and accurate translation, your response must starts with \" 译文:\""},
                 {
                     "role": "user",
                     "content": f"translate into Chinese: {prompt}",

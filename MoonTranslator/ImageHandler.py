@@ -43,7 +43,7 @@ def extractImagesFromPDF(inputPath):
     # Load the PDF
     pdf_document = fitz.open(inputPath)
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(inputPath))
-    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     extractionJsonPath = os.path.join(extractionFolderPath, f"{inputFileName}_images_meta.json")
     attributeSaveList = []
@@ -141,7 +141,7 @@ def extractImagesFromPPTX(inputPath):
     # Load the presentation
     presentation = Presentation(inputPath)
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(inputPath))
-    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     extractionJsonPath = os.path.join(extractionFolderPath, f"{inputFileName}_images_meta.json")
     attributeSaveList = []
@@ -208,7 +208,7 @@ def extractImagesFromXLSX(inputPath):
     # Load the workbook
     workbook = load_workbook(inputPath)
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(inputPath))
-    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(inputPath), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     extractionJsonPath = os.path.join(extractionFolderPath, f"{inputFileName}_images_meta.json")
     attributeSaveList = []

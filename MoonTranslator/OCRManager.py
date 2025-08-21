@@ -40,7 +40,7 @@ def convert_numpy_types(data):
         return data  # Return the data as is if it's not a NumPy type
 
 class ImageTextWriter:
-    reader = easyocr.Reader(['en', 'ru']) # this needs to run only once to load the model into memory
+    reader = None
     itemList = []
     defaultJsonPath = os.path.join(currentDir,"Ocr_Content.json")
     sessionName = None

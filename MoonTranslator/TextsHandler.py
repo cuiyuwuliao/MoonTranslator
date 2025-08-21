@@ -75,7 +75,7 @@ def add_suffix_to_filename(file_path, suffix):
 # -----------------------
 def extractTextsFromPdf(input_path: str) -> None:
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(input_path))
-    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     out_meta_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_meta.json")
     out_texts_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_content.json")
@@ -184,7 +184,7 @@ def importTextsToPdf(meta_json: str) -> None:
 
 def extractTextsFromXlsx(input_path: str) -> None:
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(input_path))
-    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     out_meta_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_meta.json")
     out_texts_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_content.json")
@@ -236,7 +236,7 @@ def importTextsToXlsx(meta_json: str) -> None:
             continue
         ws: Worksheet = wb[sheet]
         ws[cell_ref].value = texts_map[tid]
-    outputFileName = add_suffix_to_filename(input_path, "_Pimage")
+    outputFileName = add_suffix_to_filename(input_path, "_Ptext")
     wb.save(outputFileName)
     wb.close()
     return outputFileName
@@ -256,7 +256,7 @@ def _iter_shapes_recursive(shape, path_prefix: List[int]) -> List[Tuple[List[int
 
 def extractTextsFromPptx(input_path: str) -> None:
     inputFileName, inputFileExtension = os.path.splitext(os.path.basename(input_path))
-    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName}_extraction")
+    extractionFolderPath = os.path.join(os.path.dirname(input_path), f"{inputFileName.replace("_Pimage", "").replace("_Ptext","")}_extraction")
     os.makedirs(extractionFolderPath, exist_ok=True)
     out_meta_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_meta.json")
     out_texts_json = os.path.join(extractionFolderPath, f"{inputFileName}_texts_content.json")
@@ -359,7 +359,7 @@ def importTextsToPptx(meta_json: str) -> None:
                 continue
             run = paragraph.runs[r_idx]
             run.text = texts_map[tid]
-    outputFileName = add_suffix_to_filename(input_path, "_Pimage")
+    outputFileName = add_suffix_to_filename(input_path, "_Ptext")
     prs.save(outputFileName)
     return outputFileName
 
