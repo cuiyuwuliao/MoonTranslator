@@ -1,0 +1,13 @@
+﻿{
+  "BoxItems": [
+    {
+      "ImagePath": null,
+      "DisplayText": "Extract Image & Text Content From File",
+      "ContextMenu": "Tools",
+      "Link": "cmd /c start C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\dist\\MoonTranslator\\MoonTranslator.exe extract",
+      "AllowedExtensions": null,
+      "FilePath": null,
+      "IsLarge": true
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   "BoxItems": [
     {
       "ImagePath": null,
-      "DisplayText": "config.json",
+      "DisplayText": "Setting",
       "ContextMenu": "Home",
-      "Link": "C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\config.json",
+      "Link": "${moon}\\MoonTranslator\\dist\\MoonTranslator\\config.json",
       "AllowedExtensions": null,
       "FilePath": null,
-      "IsLarge": null
+      "IsLarge": false
     }
   ]
 }

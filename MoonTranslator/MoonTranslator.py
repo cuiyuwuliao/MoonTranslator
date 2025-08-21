@@ -17,7 +17,7 @@ if getattr(sys, 'frozen', False):
 else:
     currentDir = os.path.dirname(os.path.abspath(__file__))
     currentPath = os.path.abspath(__file__)
-noTranslate = True
+noTranslate = False
 OCRlanguage = []
 
 defaultConfigData = {
@@ -135,7 +135,7 @@ def translateImage(filePath):
 
 def translateFile(filePath):
     if os.path.isdir(filePath) or filePath.lower().endswith(('.jpeg', '.jpg', '.png')):
-        outputFileName = translateImage(filePath)
+        return translateImage(filePath)
     else:
         textTranslated = translateTextsFromFile(filePath)
         allTranslated = translateImagesFromFile(textTranslated)

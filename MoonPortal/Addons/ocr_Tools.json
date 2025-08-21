@@ -1,0 +1,13 @@
+﻿{
+  "BoxItems": [
+    {
+      "ImagePath": null,
+      "DisplayText": "Run OCR",
+      "ContextMenu": "Tools",
+      "Link": "cmd /c start C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\dist\\MoonTranslator\\MoonTranslator.exe OCR",
+      "AllowedExtensions": null,
+      "FilePath": null,
+      "IsLarge": true
+    }
+  ]
+}

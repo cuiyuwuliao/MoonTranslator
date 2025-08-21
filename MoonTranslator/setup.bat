@@ -11,9 +11,12 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+
+
 pip install -r requirements.txt
 rmdir /s /q "dist"
 pyinstaller MoonTranslator.py
+copy *.ttf "dist\MoonTranslator"
 echo Setup Complete!^(^>_^<^)! ...
 pause
 exit /b 1

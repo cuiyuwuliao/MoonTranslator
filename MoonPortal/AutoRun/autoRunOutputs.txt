@@ -1,2 +1,2 @@
 <copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 使用 Triton 持久缓存感知分组 GEMM 内核加速 MoE 的运行!_
+<copyTranslator>!_中文意思为: 分配公交车!_

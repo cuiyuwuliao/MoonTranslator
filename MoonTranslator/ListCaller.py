@@ -3,7 +3,6 @@ import openai
 import json
 import sys
 
-paidKey = "sk-R74koTKruRMkGXjogVbnPTCUzMkks2FeY76x3c0pJpBUuA0o"
 freeKey = "sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5"
 base_url="https://api.chatanywhere.tech/v1"
 targetLanguage = "Chinese"
@@ -12,7 +11,6 @@ maxTries = 10
 chunkSize = 1500
 
 client = openai.OpenAI(
-    # defaults to os.environ.get("OPENAI_API_KEY")
     api_key=freeKey,
     base_url=base_url
 )
@@ -24,8 +22,6 @@ def setLLM(url = base_url, key = freeKey):
         api_key=key,
         base_url=url
     )
-
-
 
 
 def split_list_by_length(input_list, max_chars=chunkSize):

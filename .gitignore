@@ -3,3 +3,5 @@ source/
 __pycache__/
 build/
 dist/
+config.json
+说明.txt
