@@ -4,7 +4,7 @@
       "ImagePath": null,
       "DisplayText": "Setting",
       "ContextMenu": "Home",
-      "Link": "${moon}\\MoonTranslator\\dist\\MoonTranslator\\config.json",
+      "Link": "${AppRoot}\\MoonTranslator\\config.json",
       "AllowedExtensions": null,
       "FilePath": null,
       "IsLarge": false

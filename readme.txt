@@ -1,5 +1,11 @@
-1. install python and run setup.bat
-2. launch MoonTranslator
+--Features:
+1. Extracts Texts and Images from pptx/pdf/xlsx or image files
+2. create a new copy of the file and import the extracted content (After you modify them)
+3. Translates these files with LLM(beta)
+
+--Usage:
+1. install python and run setup.bat(for pip install dependencies from requirements.txt)
+2. launch MoonTranslator from AppRoot
 
 --To enable cuda for faster OCR: 
 pip uninstall easyocr, torchvision

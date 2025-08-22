@@ -70,8 +70,8 @@ CRITICAL RULES:
 4. The elements are not independent from each other, Try Maintaining the context and natural phrasing
 5. Do not add escape sequences
 
-Example input: ["我喜欢你", "的勇气和", "思想", ""]
-Example output: {"translation": ["I like your", "bravery and", "your mind", ""]}"""},
+Example input: ["我喜欢你", "的发型和", "", "身", "材"]
+Example output: {"translation": ["I like your", "hair and", "", "your", "body shape"]}"""},
                 {
                     "role": "user",
                     "content": f"{json.dumps(input_list)}"
