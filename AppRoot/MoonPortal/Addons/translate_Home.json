@@ -4,7 +4,7 @@
       "ImagePath": null,
       "DisplayText": "Translate File (pptx, pdf, xlsx, png, jpg)",
       "ContextMenu": "Home",
-      "Link": "cmd /c start C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\dist\\MoonTranslator\\MoonTranslator.exe translate",
+      "Link": "cmd /c start python ${AppRoot}\\MoonTranslator\\MoonTranslator.py translate",
       "AllowedExtensions": null,
       "FilePath": null,
       "IsLarge": true

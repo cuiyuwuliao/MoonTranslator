@@ -11,7 +11,6 @@ if getattr(sys, 'frozen', False):  # If bundled by PyInstaller
 else:
     curretDir = os.path.dirname(os.path.abspath(__file__))
 
-paidKey = "sk-R74koTKruRMkGXjogVbnPTCUzMkks2FeY76x3c0pJpBUuA0o"
 client = openai.OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
     api_key="sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5",

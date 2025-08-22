@@ -1,0 +1,13 @@
+﻿{
+  "BoxItems": [
+    {
+      "ImagePath": null,
+      "DisplayText": "Extract Texts From Images",
+      "ContextMenu": "Tools",
+      "Link": "cmd /c start python ${AppRoot}\\MoonTranslator\\MoonTranslator.py OCR",
+      "AllowedExtensions": null,
+      "FilePath": null,
+      "IsLarge": true
+    }
+  ]
+}

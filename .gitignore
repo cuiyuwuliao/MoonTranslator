@@ -1,5 +1,5 @@
 source/
-*_Private
+*_Private.*
 __pycache__/
 build/
 dist/

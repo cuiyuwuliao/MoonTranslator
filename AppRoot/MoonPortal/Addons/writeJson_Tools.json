@@ -2,9 +2,9 @@
   "BoxItems": [
     {
       "ImagePath": null,
-      "DisplayText": "Run OCR",
+      "DisplayText": "Build New File With meta.json",
       "ContextMenu": "Tools",
-      "Link": "cmd /c start C:\\Users\\81996\\Desktop\\moon\\MoonTranslator\\dist\\MoonTranslator\\MoonTranslator.exe OCR",
+      "Link": "cmd /c start python ${AppRoot}\\MoonTranslator\\MoonTranslator.py writeJson",
       "AllowedExtensions": null,
       "FilePath": null,
       "IsLarge": true

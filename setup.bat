@@ -1,5 +1,5 @@
 @echo off
-cd /d "%~dp0MoonTranslator"
+cd /d "%~dp0AppRoot\MoonTranslator"
 
 :: Check if Python is installed
 python --version >nul 2>&1
@@ -13,10 +13,6 @@ if %errorlevel% neq 0 (
 
 
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-rmdir /s /q "dist"
-pyinstaller MoonTranslator.py
-copy *.ttf "dist\MoonTranslator"
-copy config.json "dist\MoonTranslator"
 echo Setup Complete!^(^>_^<^)! ...
 pause
 exit /b 1

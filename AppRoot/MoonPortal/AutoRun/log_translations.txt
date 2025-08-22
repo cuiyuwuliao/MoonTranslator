@@ -34,3 +34,7 @@
 译文:中文意思为: 使用 Triton 持久缓存感知分组 GEMM 内核加速 MoE 的运行!_
 !_原文:assignBus
 译文:中文意思为: 分配公交车!_
+!_原文:AppRoot
+译文:中文意思为: AppRoot!_
+!_原文:MoonTranslator
+译文:中文意思为: 月亮翻译者!_
