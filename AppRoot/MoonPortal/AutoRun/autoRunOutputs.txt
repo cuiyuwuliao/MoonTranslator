@@ -1,2 +1,4 @@
 <copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 分配公交车!_
+<copyTranslator>!_中文意思为: AppRoot!_
+<copyTranslator>!_翻译中<*_*>...!_
+<copyTranslator>!_中文意思为: 月亮翻译者!_
