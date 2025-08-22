@@ -11,21 +11,6 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-:: Check if the virtual environment already exists
-if exist "venv" (
-    echo Virtual environment already exists. Activating it...
-) else (
-    :: Create a virtual environment
-    python -m venv venv
-    if %errorlevel% neq 0 (
-        echo Failed to create virtual environment.
-        exit /b 1
-    )
-)
-
-:: Activate the virtual environment
-call venv\Scripts\activate
-
 
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 rmdir /s /q "dist"
