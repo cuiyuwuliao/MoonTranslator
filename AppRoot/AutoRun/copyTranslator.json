@@ -1,4 +1,4 @@
 ﻿{
   "Link": "${AppRoot}\\MoonTranslator\\copyTranslator.py",
-  "AutoRun": 0
+  "AutoRun": -1
 }
