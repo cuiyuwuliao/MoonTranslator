@@ -7,7 +7,7 @@
         },
         {
             "ContextMenu":"Tools",
-            "DisplayText":"-一些有用的工具\n-提取图片和文字后，运行输出文件夹的.bat脚本可以将文件导入回原文件",
+            "DisplayText":"-一些有用的工具\n-你可以: 提取文字->自行翻译和校对content.json->重新导入原文件",
             "Link":"header",
             "AllowedExtensions" : ".rpp" 
         },

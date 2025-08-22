@@ -94,11 +94,8 @@ class ImageTextWriter:
         # Calculate width and height of the bounding box
         BoxWidth = abs(BottomRight[0] - TopLeft[0])
         BoxHeight = abs(BottomRight[1] - TopLeft[1])
-        # if BoxHeight < 20:
-        #     BoxHeight = 20
-        # if BoxWidth < 20:
-        #     BoxHeight = 40
-        # Determine font size based on the height of the bounding box
+        if BoxHeight < 20:
+            BoxHeight = 20
         FontSize = int(BoxHeight * FontSizeRatio)
         Font = ImageFont.truetype(os.path.join(currentDir,ImageTextWriter.fontFile), FontSize)
         # Calculate text size

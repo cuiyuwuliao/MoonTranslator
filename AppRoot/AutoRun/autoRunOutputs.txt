@@ -1,4 +1,12 @@
+<copyTranslator>!_复制翻译器已启动, 复制一个文本四次即可翻译成中文!_
+<copyTranslator>!_negative翻译中<*_*>...!_
 <copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: AppRoot!_
 <copyTranslator>!_翻译中<*_*>...!_
-<copyTranslator>!_中文意思为: 月亮翻译者!_
+<copyTranslator>!_unintended 翻译中<*_*>...!_
+<copyTranslator>!_If FontSizeRatio were negative, then FontSize could potentially be negative, but that would typically be an unintended consequence.翻译中<*_*>...!_
+<copyTranslator>!_ensure that FontSize is at least 1, avoid翻译中<*_*>...!_
+<copyTranslator>!_翻译中<*_*>...!_
+<copyTranslator>!_翻译中<*_*>...!_
+<copyTranslator>!_翻译中<*_*>...!_
+<copyTranslator>!_ht is calculated using the a翻译中<*_*>...!_
+<copyTranslator>!_FontSize = int(BoxHeight * FontSizeRatio)翻译中<*_*>...!_

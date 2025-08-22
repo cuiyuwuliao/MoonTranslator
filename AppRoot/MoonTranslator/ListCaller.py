@@ -3,7 +3,7 @@ import openai
 import json
 import sys
 
-freeKey = "sk-WpCb6vXleVk6djvQICFygFTzv3B7GFvCEIN9YSV1C9ydNKW5"
+Key = "yourAPIKey"
 base_url="https://api.chatanywhere.tech/v1"
 targetLanguage = "Chinese"
 model = "gpt-4o-mini"
@@ -11,12 +11,12 @@ maxTries = 10
 chunkSize = 1500
 
 client = openai.OpenAI(
-    api_key=freeKey,
+    api_key=Key,
     base_url=base_url
 )
 
 
-def setLLM(url = base_url, key = freeKey):
+def setLLM(url = base_url, key = Key):
     global client
     client = openai.OpenAI(
         api_key=key,

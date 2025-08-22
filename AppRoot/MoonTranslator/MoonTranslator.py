@@ -176,8 +176,7 @@ def createWriteJsonBat(folderPath):
     if not os.path.isdir(folderPath):
         folderPath = os.path.dirname(folderPath)
     bat_content = f"""@echo off
-    {currentPath} "{"writeJson"}" "{folderPath}"
-    pause
+    start python "{currentPath}" "writeJson" "{folderPath}"
     """
     bat_file_name = os.path.join(folderPath, "recoverFile.bat")
     if os.path.exists(bat_file_name):
